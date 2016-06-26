@@ -2,11 +2,8 @@ package br.com.caelum.loja.conf;
 
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
-import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -14,7 +11,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-	return new Class[]{SpringSecurityConfiguration.class, AppWebConfiguration.class, JPAConfiguration.class};
+	return new Class[]{SpringSecurityConfiguration.class, AppWebConfiguration.class, JPAConfiguration.class, JPAProductionConfiguration.class};
     }
 
     @Override
@@ -34,7 +31,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 	
         return new Filter[]{
                 encoding,
-                // new OpenEntityManagerInViewFilter() - Opcional - Pattern OpenEntityManagerInView!
+                // new OpenEntityManagerInViewFilter() - Optional - Pattern OpenEntityManagerInView!
             };
     }
     
@@ -43,10 +40,10 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 	registration.setMultipartConfig(new MultipartConfigElement(""));
     }
     
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-	super.onStartup(servletContext);
-	servletContext.addListener(RequestContextListener.class); // Registra um context listener do Spring.
-	servletContext.setInitParameter("spring.profiles.active", "dev"); // Listener para buscar o profile do banco de produção.
-    }
+//    @Override
+//    public void onStartup(ServletContext servletContext) throws ServletException {
+//	super.onStartup(servletContext);
+//	servletContext.addListener(RequestContextListener.class); // Registra um context listener do Spring.
+//	servletContext.setInitParameter("spring.profiles.active", "dev"); // Listener para buscar o profile do banco de produção.
+//    }
 }
