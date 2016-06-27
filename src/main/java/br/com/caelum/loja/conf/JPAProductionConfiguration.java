@@ -28,7 +28,6 @@ public class JPAProductionConfiguration {
     }
 
     @Bean
-    @Profile("dev") // Identifica que essa conexão é de um banco de produção.
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
