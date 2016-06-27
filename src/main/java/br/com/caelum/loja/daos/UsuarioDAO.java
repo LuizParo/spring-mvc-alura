@@ -29,9 +29,6 @@ public class UsuarioDAO implements UserDetailsService {
     }
     
     public void save(Usuario usuario) {
-        Usuario recoveredUser = this.manager.find(Usuario.class, usuario.getEmail());
-        if(recoveredUser == null) {
-            this.manager.persist(usuario);
-        }
+        this.manager.persist(usuario);
     }
 }
