@@ -27,4 +27,8 @@ public class UsuarioDAO implements UserDetailsService {
 	
 	return usuarios.get(0);
     }
+    
+    public void save(Usuario usuario) {
+        this.manager.persist(usuario);
+    }
 }

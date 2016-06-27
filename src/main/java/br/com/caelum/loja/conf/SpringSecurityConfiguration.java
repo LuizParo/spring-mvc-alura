@@ -30,6 +30,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/produtos/**").permitAll() // Liberação de todas as páginas que comecem com a URL produtos/..., com excessão de "/produtos/form".
 		.antMatchers("/resources/**").permitAll() // Liberação de todos os requests dos recursos (CSS, Js, etc), para que nenhum seja barrado pelo Spring.
 		.antMatchers("/").permitAll() // Liberação da Home.
+		.antMatchers("/magic-crazy-url-hsfvhruiha5645645ofh@#$#**$&%#%$@abghjdsbhsyuf456456ssbssf").permitAll() // Liberação da inserção de usuário pelo home (Heroku).
 		.anyRequest().authenticated() // Qualquer request deve ser autenticado.
 		.and().formLogin().loginPage("/login").permitAll() // Se não estiver autenticado, mande pro formulário de login.
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
