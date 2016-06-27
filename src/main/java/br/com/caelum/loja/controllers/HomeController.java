@@ -38,7 +38,7 @@ public class HomeController {
     
     @ResponseBody
     @Transactional(readOnly = false)
-    @RequestMapping("/magic-crazy-url-hsfvhruiha5645645ofh@#$#**$&%#%$@abghjdsbhsyuf456456ssbssf")
+    @RequestMapping("/magic-crazy-url-hsfvhruiha5645645ofhabghjdsbhsyuf456456ssbssf")
     public String urlMagicCrazy() {
         Usuario usuario = new Usuario();
         usuario.setNome("Admin");
